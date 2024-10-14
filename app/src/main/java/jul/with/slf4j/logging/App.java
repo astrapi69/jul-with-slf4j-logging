@@ -3,24 +3,16 @@
  */
 package jul.with.slf4j.logging;
 
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class App {
     // SLF4J Logger
-    private static final org.slf4j.Logger slf4jLogger = LoggerFactory.getLogger(App.class);
-    // JUL Logger
-    private static final java.util.logging.Logger julLogger = java.util.logging.Logger.getLogger(App.class.getName());
+    private static final Logger logger = LoggerFactory.getLogger(App.class);
 
     public static void main(String[] args) {
-        // Setup the logging configuration
-        LoggingConfiguration.setup();
-
-        // Log a message using SLF4J
-        slf4jLogger.info("This is an SLF4J info message.");
-        slf4jLogger.warn("This is an SLF4J warning message.");
-
-        // Log a message using JUL
-        julLogger.info("This is a JUL info message.");
-        julLogger.warning("This is a JUL warning message.");
+        // Log messages using SLF4J, which will be handled by Log4j2
+        logger.info("This is an SLF4J info message.");
+        logger.warn("This is an SLF4J warning message.");
     }
 }
